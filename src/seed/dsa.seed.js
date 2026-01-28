@@ -5,7 +5,7 @@ import { env } from '../config/env.js';
 const seedTopics = async () => {
   try {
     await mongoose.connect(env.MONGO_URI);
-    console.log('🌱 Seeding topics with articles...');
+    console.log('Seeding topics with articles...');
 
     await Topic.deleteMany();
 
@@ -147,10 +147,10 @@ const seedTopics = async () => {
       },
     ]);
 
-    console.log('✅ Topics seeded successfully');
+    console.log('Topics seeded successfully');
     process.exit(0);
   } catch (err) {
-    console.error('❌ Seeding failed', err);
+    console.error('Seeding failed', err);
     process.exit(1);
   }
 };

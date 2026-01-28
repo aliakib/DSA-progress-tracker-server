@@ -11,7 +11,7 @@ const seedUser = async () => {
     password: 'password123'
   });
 
-  console.log('✅ Test user created');
+  console.log('Test user created');
   process.exit();
 };
 
