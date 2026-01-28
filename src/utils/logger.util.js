@@ -15,20 +15,9 @@ const logger = winston.createLogger({
     logFormat
   ),
   transports: [
-    // Console logs
+    // Console logs only
     new winston.transports.Console({
       format: combine(colorize(), logFormat)
-    }),
-
-    // Error logs file
-    new winston.transports.File({
-      filename: 'logs/error.log',
-      level: 'error'
-    }),
-
-    // All logs file
-    new winston.transports.File({
-      filename: 'logs/combined.log'
     })
   ]
 });
