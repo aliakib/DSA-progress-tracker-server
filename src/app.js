@@ -13,15 +13,13 @@ import { errorHandler, notFound } from './middlewares/error.middleware.js';
 
 const app = express();
 
-/* ----------------------------- Global Middlewares ----------------------------- */
-
 // Security headers
 app.use(helmet());
 
 // Enable CORS
 app.use(
   cors({
-    origin: '*', // change to frontend domain in prod
+    origin: '*',
     credentials: true
   })
 );
@@ -39,8 +37,6 @@ app.use(
   })
 );
 
-/* ----------------------------- Health Check ----------------------------- */
-
 app.get('/', (_req, res) => {
   res.status(200).json({
     status: 'OK',
@@ -48,11 +44,7 @@ app.get('/', (_req, res) => {
   });
 });
 
-/* ----------------------------- Routes ----------------------------- */
-
 app.use('/api/v1', v1Routes);
-
-/* ----------------------------- Error Handling ----------------------------- */
 
 // 404 handler
 app.use(notFound);

@@ -1,6 +1,6 @@
 import User from '../../../models/User.model.js';
 import logger from '../../../utils/logger.util.js';
-import { generateAccessToken } from '../../../utils/token.util.js';
+import { generateAccessToken } from '../../../utils/jwt.util.js';
 
 export const AuthService = Object.freeze({
     signup: async ({ name, email, password }) => {

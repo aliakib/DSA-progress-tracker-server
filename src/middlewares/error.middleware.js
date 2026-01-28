@@ -1,3 +1,4 @@
+import { env } from '../config/env.js';
 import logger from '../utils/logger.util.js';
 
 /**
@@ -21,7 +22,7 @@ export const errorHandler = (err, req, res, _next) => {
   res.status(statusCode).json({
     success: false,
     message: err.message || 'Internal Server Error',
-    ...(process.env.NODE_ENV === 'development' && {
+    ...(env.NODE_ENV === 'development' && {
       stack: err.stack
     })
   });

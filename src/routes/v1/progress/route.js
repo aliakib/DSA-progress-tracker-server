@@ -4,7 +4,7 @@ import { ProgressController } from './controller.js';
 
 const router = Router();
 
-// 🔐 All progress routes are protected
+// All progress routes are protected
 router.use(protect);
 
 router.post('/toggle', ProgressController.toggleProgress);

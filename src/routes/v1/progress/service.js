@@ -2,9 +2,6 @@ import User from '../../../models/User.model.js';
 import logger from '../../../utils/logger.util.js';
 
 export const ProgressService = Object.freeze({
-  /**
-   * Toggle completion status of a problem
-   */
   toggle: async (userId, problemSlug) => {
     if (!problemSlug) {
       const err = new Error('problemSlug is required');
@@ -33,10 +30,6 @@ export const ProgressService = Object.freeze({
       completed: !currentStatus
     };
   },
-
-  /**
-   * Fetch user's progress map
-   */
   get: async (userId) => {
     const user = await User.findById(userId);
     if (!user) {

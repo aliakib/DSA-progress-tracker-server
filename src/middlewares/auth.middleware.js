@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
 import User from '../models/User.model.js';
 import logger from '../utils/logger.util.js';
+import { verifyToken } from '../utils/jwt.util.js';
 
 export const protect = async (req, _res, next) => {
   try {
@@ -21,7 +21,7 @@ export const protect = async (req, _res, next) => {
     }
 
     // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = verifyToken(token);
 
     // Attach user to request (without password)
     const user = await User.findById(decoded.id);
