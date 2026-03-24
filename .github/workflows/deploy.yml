@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
       - name: Deploy Via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
